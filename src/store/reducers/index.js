@@ -15,6 +15,7 @@ const initialState = {
     logoMw: 320,
     logoMh: 60,
     Qrcodes: [],
+    Anana = "",
     
 }
 const reducer = (state = initialState, action) => {
