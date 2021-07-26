@@ -1,4 +1,4 @@
-import { UPDATE_CANVAS, QR_EDIT, QRADD, START, LOGOEDIT, NEWLOGO } from '../../../../../../../../../../xampp/htdocs/Pleksi-Qrcode/src/store/method'
+import { UPDATE_CANVAS, QR_EDIT, QRADD, START, LOGOEDIT, NEWLOGO } from '../method';
 
 const initialState = {
     cBackgroundimage: "./images/taslak.png",
