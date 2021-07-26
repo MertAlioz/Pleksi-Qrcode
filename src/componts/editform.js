@@ -53,7 +53,7 @@ const edit = props => {
                 <div className="edit-box">
                     <h5>Logo Düzenlemesi </h5>
                     <input className="form-control  col-12 mb-3" placeholder="Logo Yükle" id="logo" type="file" onChange={() => logo()}></input>
-                    <button className="btn btn-outline-danger col-12 mb-3" onClick={() => LogoEdit(300, 220, 320)}>Kare</button>
+                    <button className="btn btn-outline-danger col-12 mb-3" onClick={() => LogoEdit(300, 220, 350)}>Kare</button>
                     <button className="btn btn-outline-danger col-12 mb-3" onClick={() => LogoEdit(500, 220, 240)}>Dikdörtgen</button>
                 </div>
             </div>

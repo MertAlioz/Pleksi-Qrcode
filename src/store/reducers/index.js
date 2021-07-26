@@ -12,7 +12,7 @@ const initialState = {
     Logo: "",
     logoW: 300,
     logoH: 220,
-    logoMw: 320,
+    logoMw: 350,
     logoMh: 60,
     Qrcodes: [],
 }

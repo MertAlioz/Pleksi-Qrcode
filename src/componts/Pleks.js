@@ -33,7 +33,7 @@ const pleksStabilDate = {
   },
   textStyle: {
     fillStyle: "black",
-    font: "50px monospace",
+    font: "60px Arial",
     aling: "center",
   }
 }
@@ -99,7 +99,7 @@ const Canvas = props => {
     context.font = "60px Arial";
     context.fillStyle = "black";
     context.textAlign = "center";
-    context.fillText("|", width * count, 40);
+    context.fillText("|", width * count, 632);
     context.fillText("|", width * count, state.image.height+592);
     context.fillText("|", width * count, state.image.height * 2  +582);
     context.fill();
