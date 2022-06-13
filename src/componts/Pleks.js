@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, } from 'react';
 import { connect } from "react-redux";
 import canvasInfo from '../store/actions/canvasInfo';
 import { changeDpiDataUrl } from 'changedpi';
-import swalFire from './functions/swal';
+import AlertSwal from './functions/swal';
 import QrEdit from './Modals/qrEdit';
 import $ from 'jquery';
 const pleksStabilDate = {
@@ -15,9 +15,9 @@ const pleksStabilDate = {
   },
   qrCode: {
     Height: 420,
-    Width: 410,
-    Top: 460,
-    Left: 287,
+    Width: 420,
+    Top: 880,
+    Left: 460,
   },
   sectionNum: {
     Top: 1410,
@@ -33,7 +33,8 @@ const pleksStabilDate = {
   },
   textStyle: {
     fillStyle: "black",
-    font: "50px Arial",
+    font: "bold 35px Arial",
+    fontWeight: "bold",
     aling: "center",
   }
 }
@@ -67,7 +68,7 @@ const Canvas = props => {
       context.textAlign = state.textStyle.aling;
       context.fillText(props.sectionName, state.sectionName.Left, state.sectionName.Top);
     //  context.fillText("-", state.sectionBetween.Left, state.sectionBetween.Top);
-      context.fillText(props.sectionNum, state.sectionNum.Left, state.sectionNum.Top);
+     // context.fillText(props.sectionNum, state.sectionNum.Left, state.sectionNum.Top);
       context.fill();
     }
   }
@@ -79,7 +80,7 @@ const Canvas = props => {
       var İmage = new Image();
       İmage.src = e.url;
       İmage.onload = () => {
-        if (pageCount === state.image.pageCount || maxCount === maxPleks) {
+        if (pageCount === state.image.pageCount || maxPleks == maxCount ) {
           createPleks(context, İmage, state.image.width, state.image.height, TO_RADIANS, count); //Create end İmage 
           downloadInfo("Sayfa ", plekscount); //set name before and  download image
           CounterReset();
@@ -172,7 +173,7 @@ const Canvas = props => {
       if (loop === true) {
         if (!row) {
           if (message === 0) {
-            swalFire('success', 'Resimler Kayıt Edildi', 'İşlem Başarılı')
+            AlertSwal.Fire('success', 'Resimler Kayıt Edildi', 'İşlem Başarılı')
           }
           message = 1;
         }
@@ -209,13 +210,15 @@ const Canvas = props => {
       <canvas className="canvas" id="canvas" ref={canvasRef}>
       </canvas>
       <div className="col-12 text-center m-3">
-        <button className="btn btn-outline-danger" onClick={() => loop = true}>Tekli Pleksi İndir </button>
+      <button className="btn btn-outline-danger" onClick={() => loop = true}>Tekli Pleksi İndir </button>
+      <button className="btn btn-outline-danger" onClick={() =>{ alert(props.Qrcodes.length); console.log(props.Qrcodes)}}>kontrol et </button>
         <button type="button" className="btn btn-outline-danger m-3" data-bs-toggle="modal" data-bs-target="#QrcodeEdit">
           Qrcode Edit
         </button>
       </div>
       <QrEdit Left={state.qrCode.Left} Top={state.qrCode.Top} Height={state.qrCode.Height} Width={state.qrCode.Width} />
     </div>
+    
   )
 }
 const mapStateToProps = state => {

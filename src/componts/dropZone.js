@@ -57,7 +57,6 @@ const Dropzone = props => {
     data = e.function.split("*");
     let fetch = data[0].replace("qrcode_", "").replace(".png", "").split("_");
     let namefetch = fetch[0].split("_");
-    console.log(fetch.length);
     if (fetch.length > 2) {
       name = fetch[0];
       //.slice(0, 1).toUpperCase() + "" + fetch[1].slice(0, 1).toUpperCase();
@@ -69,7 +68,6 @@ const Dropzone = props => {
       num = fetch[1];
     }
     url = data[1];
-    console.log(props)
     props.dispatch(canvasInfo(name, num, url));
   }
   const files_info = files.map((file, idx) => (
@@ -84,7 +82,6 @@ const Dropzone = props => {
       nameEdit(file.name, file.preview)
     ));
   }
-  console.log(props.Qrcodes);
   return (
     <section className="row p-5 ">
       <div {...getRootProps({ style })} className="col-6 d-b">
